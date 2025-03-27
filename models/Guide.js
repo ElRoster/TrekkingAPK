@@ -2,22 +2,7 @@ const {model, Schema} = require ('mongoose')
 
 const SchemaGuide = new Schema(
     {
-        id:{
-            type:Number,
-            required:[true,"Id is required"],
-            unique:[true,"Id is must be unique"],
-            maxlength:[9,"maximum 9 characters"],
-            minlength:[3,"minimum 3 characters"]
-        },
-
-        nit:{
-            type:Number,
-            required:[true,"Nit is required"],
-            unique:[true,"Nit is must be unique"],
-            maxlength:[15,"maximum 15 characters"],
-            minlength:[0,"Nit is invalid"]
-        },
-
+     
         name:{
             type:String,
             required:[true,"Name is required"],
