@@ -35,6 +35,10 @@ const SchemaGuide = new Schema(
         state:{
             type:String,
             required:[true,"State is required"]
+        },
+
+        observacion:{
+            type:String,
         }
     }
 )

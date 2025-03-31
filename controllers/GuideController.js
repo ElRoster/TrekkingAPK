@@ -60,7 +60,7 @@ const postGuide = async (req, res) => {
 
 const putGuide = async (req, res) => {
     const { id } = req.params;  // Tomamos el ID de los parámetros de la URL
-    const { name, lastname, email, cellphone, state } = req.body;
+    const { name, lastname, email, cellphone, state, observacion } = req.body;
 
     if (!id) {
         return res.status(400).json({ msg: 'El ID es requerido.' });
@@ -69,7 +69,7 @@ const putGuide = async (req, res) => {
     try {
         const updatedGuide = await Guide.findByIdAndUpdate(
             id,
-            { name, lastname, email, cellphone, state },
+            { name, lastname, email, cellphone, state, observacion },
             { new: true, runValidators: true }
         );
 
