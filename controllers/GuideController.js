@@ -34,8 +34,33 @@ const postGuide = async (req, res) => {
     }
 };
 
+// const putGuide = async (req, res) => {
+//     const { id, name, lastname, email, cellphone, state } = req.body;
+
+//     if (!id) {
+//         return res.status(400).json({ msg: 'El ID es requerido.' });
+//     }
+
+//     try {
+//         const updatedGuide = await Guide.findByIdAndUpdate(
+//             id,
+//             { name, lastname, email, cellphone, state },
+//             { new: true, runValidators: true } // Devuelve el actualizado y aplica validaciones del modelo
+//         );
+
+//         if (!updatedGuide) {
+//             return res.status(404).json({ msg: 'Guía no encontrado.' });
+//         }
+
+//         res.json({ msg: 'Guía actualizado.', guide: updatedGuide });
+//     } catch (error) {
+//         res.status(500).json({ msg: error.message });
+//     }
+// };
+
 const putGuide = async (req, res) => {
-    const { id, name, lastname, email, cellphone, state } = req.body;
+    const { id } = req.params;  // Tomamos el ID de los parámetros de la URL
+    const { name, lastname, email, cellphone, state } = req.body;
 
     if (!id) {
         return res.status(400).json({ msg: 'El ID es requerido.' });
@@ -45,7 +70,7 @@ const putGuide = async (req, res) => {
         const updatedGuide = await Guide.findByIdAndUpdate(
             id,
             { name, lastname, email, cellphone, state },
-            { new: true, runValidators: true } // Devuelve el actualizado y aplica validaciones del modelo
+            { new: true, runValidators: true }
         );
 
         if (!updatedGuide) {
@@ -57,6 +82,7 @@ const putGuide = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
+
 
 const deleteGuide = async (req, res) => {
     const { id } = req.params;
